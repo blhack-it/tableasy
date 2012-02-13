@@ -8,8 +8,8 @@ module Tableasy
       end
     end
 
-    def table_cell(value, header=false)
-      Tableasy::Table::Cell.new(nil, value.to_s.html_safe, header)
+    def table_cell(value, header=false, html = {})
+      Tableasy::Table::Cell.new(value.to_s.html_safe, header, html = {})
     end
 
     def content_row(row)

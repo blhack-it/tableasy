@@ -5,7 +5,7 @@ require 'rspec'
 require 'blueprints'
 require 'mocha'
 require 'fake_models'
-require 'action_view/template/handlers/erb'
+# require 'action_view/template/handlers/erb'
 
 RSpec.configure do |config|
   config.mock_with :mocha

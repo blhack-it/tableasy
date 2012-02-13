@@ -5,21 +5,10 @@ module Tableasy
       attr_accessor :value, :header
       attr_reader :subject
 
-      def initialize(subject, value, header = false)
-        @subject = subject
-        @header = header
-        self.value = value
-      end
-
-      def value=(value)
-        value = value.header if @header and value.is_a?(Tableasy::Formatter::Column) and !value.header_only?
-        if value.is_a?(Tableasy::Formatter::Column)
-          self.value = value.column if value.column
-          value.execute(self)
-        else
-          value = @subject.send(value) if value.is_a?(Symbol)
-          @value = value
-        end
+      def initialize(value, header, html = {})
+        @header  = header
+        @value   = value
+        @html    = html
       end
 
       def tag
