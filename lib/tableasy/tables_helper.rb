@@ -8,11 +8,11 @@ module Tableasy
       end
     end
 
-    def table_cell(value, header=false, html = {})
-      Tableasy::Table::Cell.new(value.to_s.html_safe, header, html)
+    def table_cell(value, html={})
+      Tableasy::Table::Cell.new(value.to_s.html_safe, false, html)
     end
 
-    def header_cell(value, html = {})
+    def header_cell(value, html={})
       Tableasy::Table::Cell.new(value.to_s.html_safe, true, html)
     end
 
