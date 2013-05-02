@@ -12,23 +12,17 @@ module Tableasy
       Tableasy::Table::Cell.new(value.to_s.html_safe, header, html)
     end
 
+    def header_cell(value, html = {})
+      Tableasy::Table::Cell.new(value.to_s.html_safe, true, html)
+    end
+
+    private
+
     def content_row(row)
       content_tag('tr', row.html) do
         row.cells.each {|cell| concat content_tag(cell.tag, cell.value, cell.html) }
       end
     end
 
-    protected
-
-    def header_cell(column, klass)
-      column = default_header(column) if column.is_a?(Symbol)
-      Table::Cell.new(klass, column, true)
-    end
-
-    def table_row(object, columns)
-      columns.collect do |column|
-        Table::Cell.new(object, column)
-      end
-    end
   end
 end

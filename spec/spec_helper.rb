@@ -3,9 +3,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'tableasy'
 require 'rspec'
 require 'blueprints'
-require 'mocha'
+require 'mocha/setup'
 require 'fake_models'
-# require 'action_view/template/handlers/erb'
 
 RSpec.configure do |config|
   config.mock_with :mocha
