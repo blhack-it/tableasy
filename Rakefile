@@ -16,7 +16,6 @@ Includes library of predefined column formatters. Also has ability to generate "
     gem.add_development_dependency "mocha"
     gem.add_dependency "activesupport", ">= 3.0.0"
     gem.add_dependency "actionpack", ">= 3.0.0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

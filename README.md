@@ -1,6 +1,8 @@
-= tableasy
+= Tableasy
 
-Description goes here.
+Rails tables builder gem that makes creating tables painless.
+Includes ability to write custom column formatters or even customize row completely.
+Includes library of predefined column formatters. Also has ability to generate "totals" row.
 
 == Note on Patches/Pull Requests
 
