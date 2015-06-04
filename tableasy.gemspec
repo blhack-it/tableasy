@@ -55,9 +55,6 @@ Gem::Specification.new do |s|
   s.add_dependency(%q<rspec>, ['>= 2.0.0'])
   s.add_dependency(%q<blueprints>, [">= 0"])
   s.add_dependency(%q<mocha>, [">= 0"])
-  s.add_dependency(%q<rspec>, [">= 2.0.0"])
-  s.add_dependency(%q<blueprints>, [">= 0"])
-  s.add_dependency(%q<mocha>, [">= 0"])
   s.add_dependency(%q<activesupport>, [">= 3.0.0"])
   s.add_dependency(%q<actionpack>, [">= 3.0.0"])
 
