@@ -9,11 +9,11 @@ module Tableasy
     end
 
     def table_cell(value, html={})
-      Tableasy::Table::Cell.new(value.to_s.html_safe, false, html)
+      Tableasy::Table::Cell.new(value.to_s.html_safe, {}, html)
     end
 
     def header_cell(value, html={})
-      Tableasy::Table::Cell.new(value.to_s.html_safe, true, html)
+      Tableasy::Table::Cell.new(value.to_s.html_safe, { header: true }, html)
     end
 
     private

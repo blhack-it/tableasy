@@ -1,5 +1,5 @@
 # Tableasy Changelog
 
-## 2.x
+## 1.0
 
-Old Mantainer
+Initial Version

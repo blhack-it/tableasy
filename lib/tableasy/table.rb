@@ -2,8 +2,8 @@ module Tableasy
   class Table
     attr_reader :rows
 
-    def initialize
-      @rows = []
+    def initialize(rows=[])
+      @rows = rows
     end
 
     def add_row(cells, html = {})

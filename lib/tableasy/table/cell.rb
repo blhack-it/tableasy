@@ -1,14 +1,13 @@
 module Tableasy
   class Table
     class Cell
-      include HtmlAttributes
-      attr_accessor :value, :header
-      attr_reader :subject
+      attr_accessor :options, :value, :header, :html
 
-      def initialize(value, header, html = {})
-        @header  = header
-        @value   = value
-        @html    = html
+      def initialize(value, options={}, html={})
+        @value = value
+        @options = options.reverse_merge(header: false)
+        @header = options[:header]
+        @html = html
       end
 
       def tag

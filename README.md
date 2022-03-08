@@ -1,19 +1,25 @@
 # Tableasy
 
 Rails tables builder gem that makes creating tables painless.
-Includes ability to write custom column formatters or even customize row completely.
-Includes library of predefined column formatters. Also has ability to generate "totals" row.
 
-## Note on Patches/Pull Requests
+### Usage
 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+```
+table = Tableasy::Table.new
 
-## Copyright
+table.add_row [helper.header_cell('Name', class: "hc")], { class: "rc" }
+table.add_row [helper.table_cell('John')]
 
-Copyright (c) 2010 Andrius Chamentauskas. See LICENSE for details.
+render_table(table)
+
+```
+
+### Output
+
+```
+<table><tr class=\"rc\"><th class=\"hc\">Name</th></tr><tr><td>John</td></tr></table>
+```
+
+### Rendered
+
+<table><tr><th>Name</th></tr><tr><td>John</td></tr></table>

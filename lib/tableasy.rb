@@ -1,43 +1,23 @@
-require 'active_support'
-require 'action_view'
-require 'action_controller'
-%w{html_attributes table/cell table/row total formatter tables_helper table}.each {|f| require File.dirname(__FILE__) + "/tableasy/#{f}" }
+# frozen_string_literal: true
+
+require 'active_support/dependencies'
+require 'active_support/lazy_load_hooks'
 
 module Tableasy
-  module FormattersHelper
+
+  autoload :Table, 'tableasy/table'
+
+  class Table
+
+    autoload :Cell, 'tableasy/table/cell'
+    autoload :Row, 'tableasy/table/row'
+
   end
 
-  class FormattersContext
-    @@formatters = {}
-
-    def self.formatter(name, options = {}, &block)
-      options.reverse_merge!(:initial => true, :header => :default)
-      options[:initial] = false if options[:header_only]
-
-      formatter = Formatter.new(options, &block)
-      FormattersHelper.module_eval do
-        define_method(name) do |*args|
-          Formatter::Column.new(self, formatter, *args.push(options))
-        end
-      end
-      @@formatters[name] = formatter
-    end
-
-    def self.[](key)
-      @@formatters[key.to_sym] or raise "Formatter not found '#{key}'"
-    end
-
-    def self.[]=(key, value)
-      @@formatters[key.to_sym] = value
-    end
-  end
-
-  def self.reload_formatters(file)
-    FormattersContext.module_eval(File.read(file), file)
-  end
 end
 
-class ActionView::Base
-  include Tableasy::TablesHelper
-  include Tableasy::FormattersHelper
+
+ActiveSupport.on_load :action_view do
+  require 'tableasy/tables_helper'
+  ::ActionView::Base.send :include, Tableasy::TablesHelper
 end
