@@ -7,7 +7,7 @@ module Tableasy
     end
 
     def add_row(cells, html = {})
-      @rows << Row.new(cells.flatten, html)
+      @rows << Row.new(cells.compact.flatten, html)
     end
   end
 end
