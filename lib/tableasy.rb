@@ -16,7 +16,6 @@ module Tableasy
 
 end
 
-
 ActiveSupport.on_load :action_view do
   require 'tableasy/tables_helper'
   ::ActionView::Base.send :include, Tableasy::TablesHelper
